@@ -21,6 +21,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        readData()
+        
+        addKeyboardShowHideObserver()
+        
+    }
+    
+    private func readData() {
         databaseRef = Database.database().reference()
         
         databaseRef.observe(.childAdded, with: { snapshot in
@@ -30,10 +37,11 @@ class ViewController: UIViewController {
                 self.textView.text = (currentText ?? "") + "\n\(name) : \(message)"
             }
         })
-        
+    }
+    
+    private func addKeyboardShowHideObserver() {
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ViewController.keyboardWillHide(_:)), name: UIResponder.keyboardDidHideNotification, object: nil)
-        
     }
 
     @IBAction func tappedSendButton(_ sender: Any) {
