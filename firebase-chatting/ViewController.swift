@@ -17,6 +17,10 @@ class ViewController: UIViewController {
     @IBOutlet weak var inputViewBottomMargin: NSLayoutConstraint!
     
     var databaseRef: DatabaseReference!
+    
+    let userDefaults = UserDefaults.standard
+    fileprivate let nameKey = "name"
+    fileprivate let messageKey = "message"
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,9 @@ class ViewController: UIViewController {
         
         addKeyboardShowHideObserver()
         
+        nameInputView.delegate = self
+        nameInputView.text = readNameData()
+        
     }
     
     private func readData() {
@@ -32,7 +39,7 @@ class ViewController: UIViewController {
         
         databaseRef.observe(.childAdded, with: { snapshot in
             dump(snapshot)
-            if let obj = snapshot.value as? [String : AnyObject], let name = obj["name"] as? String, let message = obj["message"] {
+            if let obj = snapshot.value as? [String : AnyObject], let name = obj[self.nameKey] as? String, let message = obj[self.messageKey] {
                 let currentText = self.textView.text
                 self.textView.text = (currentText ?? "") + "\n\(name) : \(message)"
             }
@@ -48,7 +55,9 @@ class ViewController: UIViewController {
         view.endEditing(true)
         
         if let name = nameInputView.text, let message = messageInputView.text {
-            let messageData = ["name": name, "message": message]
+            save(name: name)
+            
+            let messageData = [nameKey: name, messageKey: message]
             databaseRef.childByAutoId().setValue(messageData)
             
             messageInputView.text = ""
@@ -66,5 +75,25 @@ class ViewController: UIViewController {
         inputViewBottomMargin.constant = 0
     }
     
+    fileprivate func readNameData() -> String {
+        return userDefaults.object(forKey: nameKey) as? String ?? ""
+    }
+    
+    fileprivate func save(name: String) {
+        userDefaults.set(name, forKey: nameKey)
+        userDefaults.synchronize()
+    }
+    
 }
 
+extension ViewController: UITextFieldDelegate {
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        guard let inputText = textField.text else {
+            return true
+        }
+        save(name: inputText)
+        
+        return true
+    }
+}
