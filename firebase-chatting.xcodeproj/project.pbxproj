@@ -17,6 +17,7 @@
 		9723A39522C39E6700503ABE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 9723A39422C39E6700503ABE /* GoogleService-Info.plist */; };
 		9749066B22C3AA20007B7222 /* KeyBoardToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9749066A22C3AA1F007B7222 /* KeyBoardToolBar.swift */; };
 		9762445222CCB6520028099D /* TalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9762445122CCB6520028099D /* TalkRoomViewController.swift */; };
+		9762445622CDBC700028099D /* CreateTalkRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9762445522CDBC700028099D /* CreateTalkRoomViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		9723A39422C39E6700503ABE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		9749066A22C3AA1F007B7222 /* KeyBoardToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyBoardToolBar.swift; sourceTree = "<group>"; };
 		9762445122CCB6520028099D /* TalkRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TalkRoomViewController.swift; sourceTree = "<group>"; };
+		9762445522CDBC700028099D /* CreateTalkRoomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateTalkRoomViewController.swift; sourceTree = "<group>"; };
 		EB82103DE8616D0FEB503F1C /* Pods-firebase-chatting.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-firebase-chatting.release.xcconfig"; path = "Target Support Files/Pods-firebase-chatting/Pods-firebase-chatting.release.xcconfig"; sourceTree = "<group>"; };
 		FB2CEF8B64A4E7CEECD05D1B /* Pods_firebase_chatting.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_firebase_chatting.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -126,6 +128,7 @@
 				9723A36F22C39C5900503ABE /* LaunchScreen.storyboard */,
 				9723A37222C39C5900503ABE /* Info.plist */,
 				9762445122CCB6520028099D /* TalkRoomViewController.swift */,
+				9762445522CDBC700028099D /* CreateTalkRoomViewController.swift */,
 			);
 			path = "firebase-chatting";
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9762445622CDBC700028099D /* CreateTalkRoomViewController.swift in Sources */,
 				9749066B22C3AA20007B7222 /* KeyBoardToolBar.swift in Sources */,
 				9762445222CCB6520028099D /* TalkRoomViewController.swift in Sources */,
 				9723A36922C39C5800503ABE /* ViewController.swift in Sources */,

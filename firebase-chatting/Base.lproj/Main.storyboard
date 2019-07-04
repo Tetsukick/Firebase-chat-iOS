@@ -36,11 +36,62 @@
                     <navigationItem key="navigationItem" title="Root View Controller" id="oeD-kx-Tib"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="showRoomView" id="Dgw-mX-LHC"/>
+                        <segue destination="MVa-fr-jXy" kind="presentation" identifier="modalCreateRoomView" id="19j-aD-u0v"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pGg-sY-SLy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-754" y="116"/>
+        </scene>
+        <!--Create Talk Room View Controller-->
+        <scene sceneID="rdF-sW-3lm">
+            <objects>
+                <viewController id="MVa-fr-jXy" customClass="CreateTalkRoomViewController" customModule="firebase_chatting" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="FjH-Jj-qq8">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="23" translatesAutoresizingMaskIntoConstraints="NO" id="SWK-oy-IhR">
+                                <rect key="frame" x="15" y="385" width="384" height="126.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Input New Room Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1me-hy-ImK">
+                                        <rect key="frame" x="0.0" y="0.0" width="384" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yMj-Os-McK">
+                                        <rect key="frame" x="0.0" y="43.5" width="384" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tqb-EQ-Vrf">
+                                        <rect key="frame" x="0.0" y="96.5" width="384" height="30"/>
+                                        <state key="normal" title="Create"/>
+                                        <connections>
+                                            <action selector="tappedCreateButton:" destination="MVa-fr-jXy" eventType="touchUpInside" id="lBA-Vq-lqr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SWK-oy-IhR" firstAttribute="centerY" secondItem="FjH-Jj-qq8" secondAttribute="centerY" id="CbX-xe-A6G"/>
+                            <constraint firstItem="SWK-oy-IhR" firstAttribute="leading" secondItem="LR3-hl-768" secondAttribute="leading" constant="15" id="ZBK-dU-ABi"/>
+                            <constraint firstItem="SWK-oy-IhR" firstAttribute="centerX" secondItem="FjH-Jj-qq8" secondAttribute="centerX" id="fal-Wv-1qg"/>
+                            <constraint firstItem="LR3-hl-768" firstAttribute="trailing" secondItem="SWK-oy-IhR" secondAttribute="trailing" constant="15" id="hCf-35-3eT"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="LR3-hl-768"/>
+                    </view>
+                    <connections>
+                        <outlet property="inputRoomView" destination="yMj-Os-McK" id="IYu-S3-WlH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CeT-tf-lRL" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-755" y="835"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="oBY-7a-mEE">

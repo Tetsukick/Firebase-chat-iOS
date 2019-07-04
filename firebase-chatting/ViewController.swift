@@ -21,6 +21,8 @@ class ViewController: UIViewController {
     let userDefaults = UserDefaults.standard
     fileprivate let nameKey = "name"
     fileprivate let messageKey = "message"
+    
+    var roomName: String?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +37,7 @@ class ViewController: UIViewController {
     }
     
     private func readData() {
-        databaseRef = Database.database().reference()
+        databaseRef = Database.database().reference().child(roomName!)
         
         databaseRef.observe(.childAdded, with: { snapshot in
             dump(snapshot)
